@@ -20,5 +20,4 @@ public class MyTestListener implements ITestListener {
 		System.out.println("Test Failed: " + result.getName());
 	}
 
-	// Implement other methods as needed
 }

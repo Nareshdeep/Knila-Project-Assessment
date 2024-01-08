@@ -1,9 +1,16 @@
 package com.task.webbaseclass;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
+import java.time.Duration;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
+import javax.lang.model.element.Element;
+
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -14,7 +21,9 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.task.utility.MyTestListener;
 
@@ -66,17 +75,6 @@ public class BaseClass {
 
 	}
 
-	public static void screenshot() throws Throwable {
-
-		TakesScreenshot ts = (TakesScreenshot) driver;
-		File source = ts.getScreenshotAs(OutputType.FILE);
-		File destination = new File("Task\\target\\file.png");
-		FileUtils.copyFile(source, destination);
-
-		System.out.println("");
-
-	}
-
 	public static void multiple(WebElement element, String value, String options) throws Throwable {
 		Select s = new Select(element);
 		try {
@@ -103,7 +101,7 @@ public class BaseClass {
 	public static String printValue(WebElement element) {
 		String text = element.getText();
 		return text;
-		
+
 	}
 
 	public static void action(WebElement element, String options) throws Throwable {
